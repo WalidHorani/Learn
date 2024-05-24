@@ -40,12 +40,6 @@ git remote -v
 // result => origin  https://github.com/WalidHorani/Learn.git (fetch)
 // result => origin  https://github.com/WalidHorani/Learn.git (push)
 
-===========================================
-Create a New Branch
-===========================================
-git checkout -b <branch_name>
-git checkout -b master
-
 ==========================================
 Config Your Global Git 
 ==========================================
@@ -84,7 +78,6 @@ Push changis to Remote Repo
 ================================================================================
 git push -u <origin> <local branch name>
 git push
-
 
 ===============================================================================
 pull changes from remote repo
