@@ -1,0 +1,93 @@
+==========================================
+initilize a new Repo in the curent derictory 
+==========================================
+git init // => initilize a new Repo in the curent derictory ( Learn )
+
+==========================================
+Connect Local Repo to Rempte Repo 
+==========================================
+git remote add <Remote Repo Name> <url> // => Connect Local Repo to Rempte Repo 
+git remote add Learn https://github.com/WalidHorani/Learn.git
+
+---------------------------------------------------------------------------------------------------------------------
+
+==========================================
+Create Remote Repo in GitHup
+==========================================
+
+=========================================
+get Accsess Token ( will use it insted of password)
+=========================================
+1-click your icon 
+2-seting
+3-developer seting
+4-personal Acsses Token
+5-Tokens
+6-click generate token 
+7- some option to chose 
+8-click generate token 
+9- copy the tokken
+
+==========================================
+Clone the Repo
+==========================================
+git clone <url> // => 
+
+=========================================
+Check Remote Configuration
+=========================================
+git remote -v
+// result => origin  https://github.com/WalidHorani/Learn.git (fetch)
+// result => origin  https://github.com/WalidHorani/Learn.git (push)
+
+===========================================
+Create a New Branch
+===========================================
+git checkout -b <branch_name>
+git checkout -b master
+
+==========================================
+Config Your Global Git 
+==========================================
+git config --global user.email "email@gmail.com" // => 
+git config --global user.name "name" // =>
+
+===============================================================
+staging area (prepear file to included in next snapshot commit)
+===============================================================
+git add <path/fileName> // => add the file to staging area
+git add versionControlSystems/letsStart/simple.html
+
+git add --all // => add all files to staging area
+
+git rest <path/fileName> // => Remove file from staging area we use this commend if we not making any commit yet
+git rest versionControlSystems/letsStart/simple.html
+
+git rest head <path/fileName> // => Remove file from staging area 
+git rest head versionControlSystems/letsStart/simple.html
+
+git restore --staged <path/fileName> // => Remove file from staging area 
+git restore --staged versionControlSystems/letsStart/simple.html
+
+=================================================================================
+take snapshot of your file from staging area then add the file to local repo
+=================================================================================
+git commit -m "msg" //=> add your files to local Repo (the file must be in staging area) (save state of all file take snapshot from staging area )
+git commit -a -m "msg" // => add your all file to local Repo (all file that in staging arae and files not in staging area)(save state of all file)
+
+git reset --hard HEAD // =>
+git reset --soft HEAD // =>
+git revert <commitHash> // => 
+
+================================================================================
+Push changis to Remote Repo
+================================================================================
+git push -u <origin> <local branch name>
+git push
+
+
+===============================================================================
+pull changes from remote repo
+===============================================================================
+git pull <origin>
+git pull
