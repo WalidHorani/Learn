@@ -1,0 +1,30 @@
+
+CREATE TABLE IF NOT EXISTS <tableName> (
+	col int(11),
+  	col2 int(11)
+) ;
+	// => create table
+
+CREATE TABLE IF NOT EXISTS <tableName> AS
+	SELECT <colName>, <colName>
+	WHERE <cond> ;
+	// => create table from existing table with colomn data we selected with a condition
+
+DROP TABLE <tableName>
+	// => delete table
+
+TRUNCATE TABLE <tableName>
+	// => delete table data
+
+SHOW TABLE STATUS ;
+	// => display table detailed informatons
+
+RENAME TABLE <tableName> to <newTableName>
+ALTER TABLE <tableName> RENAME <newTableName>
+	// => rename table  
+
+ALTER TABLE <tableName> ENGINE = <"ENGING">
+	// => change table engine
+
+ALTER TABLE <tableName> CONVERT TO CHARACTER SET <charset>
+	// => change table charset

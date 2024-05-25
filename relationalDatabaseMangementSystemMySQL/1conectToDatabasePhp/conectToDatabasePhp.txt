@@ -1,0 +1,17 @@
+<?php
+// declering and init var i need it for connection
+$host = <'host'> ;
+$port = <'port'> ;
+$dbname = <'databsaeName'> ;
+$charset = <'charSet'> ;
+$userName = <'userName'> ;
+$passWord = <'passWord'> ;
+
+$dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset" ;
+
+$options = array() ;
+
+$db = new PDO($dsn, $userName, $passWord, $options) ;
+
+$db -> exec('anyMySqlQuery') ;
+?>

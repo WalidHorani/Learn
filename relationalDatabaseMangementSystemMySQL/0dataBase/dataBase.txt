@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS <databaseName> // =>
+	create database
+
+SHOW DATABASES // =>
+	list of database avaliable in my MySQL serve
+
+DROP DATABASE IF EXISTS <databaseName> // =>
+	delete database 
+
+USE <databaseName> //=>
+	select database
