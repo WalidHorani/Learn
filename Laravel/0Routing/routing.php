@@ -86,7 +86,7 @@ Route Groups
 =============================================================*/
 //Route Groups : let you share attribute betwen large number of route
 	Route::middleware(['middlewareName','middlewareName'])->group(function(){/*route defintion here*/}); 
-	Route::(controllerName::class)->group(function(){/*route defintion here*/});
+	Route::controller(controllerName::class)->group(function(){/*route defintion here*/});
 	Route::domain('{account}.example.com')->group(function(){/*route defintion here*/});
 	Route::prefix('admin')->group(function(){/*route defintion here*/});
 	Route::name('admin.')->group(function(){/*route defintion here*/});

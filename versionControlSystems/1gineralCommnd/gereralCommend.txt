@@ -1,14 +1,24 @@
-git --version // => 
-	display the instaled version of git
+========================================================
+display the instaled version of git
+========================================================
+git --version
 
-git log // => 
+========================================================
+Display Commit History of Git Repo 
+========================================================
+git log
 	Display Commit History of Git Repo 
 
-git clone <url> // => 
-	Clone Remote Repo 
-
+========================================================
+Clone Remote Repo 
+========================================================
+git clone <url>
+	
+========================================================
+display the current state of Repo
+========================================================
 git status -short
-git status //=> 
+git status
 	display the current state of Repo 
 		1- Untraked File 
 		2- New File Add

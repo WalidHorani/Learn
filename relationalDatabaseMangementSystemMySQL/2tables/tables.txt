@@ -1,30 +1,46 @@
-
+/**************************************************/
+create table
+/**************************************************/
 CREATE TABLE IF NOT EXISTS <tableName> (
 	col int(11),
   	col2 int(11)
 ) ;
-	// => create table
 
+/**************************************************/
+create table from existing table with colomn data we selected with a condition
+/**************************************************/
 CREATE TABLE IF NOT EXISTS <tableName> AS
 	SELECT <colName>, <colName>
 	WHERE <cond> ;
-	// => create table from existing table with colomn data we selected with a condition
 
+/**************************************************/
+delete table
+/**************************************************/
 DROP TABLE <tableName>
-	// => delete table
 
+/**************************************************/
+delete table data
+/**************************************************/
 TRUNCATE TABLE <tableName>
-	// => delete table data
 
+/**************************************************/
+display table detailed informatons
+/**************************************************/
 SHOW TABLE STATUS ;
-	// => display table detailed informatons
 
+/**************************************************/
+rename table
+/**************************************************/
 RENAME TABLE <tableName> to <newTableName>
 ALTER TABLE <tableName> RENAME <newTableName>
-	// => rename table  
 
+/**************************************************/
+change table engine
+/**************************************************/
 ALTER TABLE <tableName> ENGINE = <"ENGING">
-	// => change table engine
 
+/**************************************************/
+change table charset
+/**************************************************/
 ALTER TABLE <tableName> CONVERT TO CHARACTER SET <charset>
-	// => change table charset
+ 

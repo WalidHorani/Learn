@@ -1,16 +1,27 @@
+========================================================
+add the file to staging area
+========================================================
 Add File Staging Area : prepering the file to be include in the next snapshot (commit) of your poject history
+	git add <path/fileName>  
 
-git add <path/fileName> // => 
-	add the file to staging area
+========================================================
+add the file to staging area (force the file even if it in gitignor file)
+========================================================
+git add -f <path/fileName>
+	
+========================================================
+add all files to staging area
+========================================================
+git add --all
+	
+========================================================
+Remove file from staging area we use this commend if we not making any commit yet
+========================================================
+git rest <path/fileName>
 
-git add -f <path/fileName> // => 
-	add the file to staging area (force the file even if it in gitignor file)
-
-git add --all // => 
-	add all files to staging area
-
-git rest <path/fileName> // => 
-	Remove file from staging area we use this commend if we not making any commit yet
+========================================================
+Remove file from staging area 
+========================================================
 git restore --staged <path/fileName> 
-git rest head <path/fileName> // => 
-	Remove file from staging area 
+git rest head <path/fileName> 
+	

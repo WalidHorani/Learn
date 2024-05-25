@@ -1,11 +1,20 @@
-CREATE DATABASE IF NOT EXISTS <databaseName> // =>
-	create database
 
-SHOW DATABASES // =>
-	list of database avaliable in my MySQL serve
+/**************************************************/
+create database
+/**************************************************/
+CREATE DATABASE IF NOT EXISTS <databaseName>
+	
+/**************************************************/
+list of database avaliable in my MySQL server
+/**************************************************/
+SHOW DATABASES
 
-DROP DATABASE IF EXISTS <databaseName> // =>
-	delete database 
+/**************************************************/
+delete database 
+/**************************************************/
+DROP DATABASE IF EXISTS <databaseName>
 
-USE <databaseName> //=>
-	select database
+/**************************************************/
+select database
+/**************************************************/
+USE <databaseName>
