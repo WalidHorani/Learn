@@ -4,12 +4,6 @@ display the instaled version of git
 git --version
 
 ========================================================
-Display Commit History of Git Repo 
-========================================================
-git log
-	Display Commit History of Git Repo 
-
-========================================================
 Clone Remote Repo 
 ========================================================
 git clone <url>

@@ -1,0 +1,11 @@
+=====================================================================
+union
+=====================================================================
+UNION : merge colomns from differant select statment from differant table in one colomn in result table 
+UNION => return distinct value not repeted value
+UNION ALL => return every thing
+condtion must met to use union 
+	1- number of colomn in first select statmet = number of colomn in secand select statmet
+    2- colomn in first select statmet AND colomn in secand select statmet must have same data type
+ 		SELECT STATMENT UNION SELECT STATMENT
+  		SELECT STATMENT UNION ALL SELECT STATMENT

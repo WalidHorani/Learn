@@ -1,0 +1,6 @@
+==============================================================
+wildCard intro
+==============================================================
+% zero or more char => bl% => bl, black, blue, blob
+_ represint single char => h_t => hot, hat, hit
+for more see the doc

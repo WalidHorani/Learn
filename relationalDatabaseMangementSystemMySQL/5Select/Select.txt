@@ -1,0 +1,121 @@
+================================================
+SeLect intro
+================================================
+//select statment : used to get data from databace as result table
+//SELECT DISTINCT => return distinct colomn or record (not repeted)
+//ORDER BY => sort result table by colomn
+//LIMIT => define number of record return
+//OFFSET => define the start point for record to return
+//LIKE => match patren with colomn value
+//IN => match colomn in set of value
+//BETWEEN => match if colomn value in range
+//EXISTS => 
+//where <col> = ANY(SELECT STATMENT) => return true if any of record return by ANY meet the condition 
+//where <col> = ALL(SELECT STATMENT) => return true if all of record return by ALL meet the condition 
+//CASE END AS result => result table conssit of colomn you selected and result colomn from the case
+
+	SELECT [DISTINCT] [ * || <col>, <col> || IF(<con,query,query>) ]
+	[
+		CASE 
+			WHEN <con> THEN <val>
+			ELSE <val>
+		END AS result
+	]
+	FROM <tableName>
+	[ WHERE <con> AND <con> OR <con> NOT <con> ]
+	[ WHERE <col> IS NULL || <col> IS NOT NULL ]
+	[ WHERE <col> LIKE <wildCard> || <col> NOT LIKE <wildCard> ]
+	[ WHERE <col> IN ( [ <val>, <val> || SELECT STATMENT ] ) || <col> NOT IN ( [ <val>, <val> || SELECT STATMENT ] ) ]
+	[ WHERE <col> BETWEEN <val> AND <val> || <col> NOT BETWEEN <val> AND <val> ]
+	[ WHERE EXISTS ( SELECT 1 FROM <chlildTable> WHERE <primaryKey.paentTable> = <forginKey.childTable> AND (<con>) ) ]
+	[ WHERE <col> < = || <> || != || > || < || >= || <= > ANY(SELECT STATMENT)
+	[ WHERE <col> < = || <> || != || > || < || >= || <= > ALL(SELECT STATMENT)
+	[ ORDER BY <col> [ASC||DESC] ]
+	[ LIMIT <numberOfRecordReturen> ]
+	[ OFFSET <startReturnRecordFromRecordNumber> ]
+	
+
+================================================
+git spacific colomn data from table
+================================================
+SELECT <col>, <col>
+FROM <tableName>
+
+================================================
+git all colomn data from table
+================================================
+SELECT *
+FROM <tableName>
+
+================================================
+git spacific colomn data from table without repet
+================================================
+SELECT DISTINCT <col>, <col>
+FROM <tableName>
+
+=================================================
+git count spacific colomn data from table
+=================================================
+SELECT COUNT( DISTINCT <col>)
+FROM <tableName>
+
+=================================================
+git spacific colomn data from table based on condition
+=================================================
+// WHERE : apply to 1-Select statment 2-update statment 3-delete statment 
+	SELECT <col>, <col>
+	FROM <tableName>
+	WHERE <con> AND <con> OR <con> NOT <con>
+
+=================================================
+git spacific colomn data from table orderd asc
+=================================================
+//defult value for order is ASCS 
+	SELECT <col>, <col>
+	FROM <tableName>
+	ORDER BY <col> ASC
+
+=================================================
+function
+=================================================
+COUNT(<col>) => return number of record
+MIN(<col>) => return minimum number in colomn
+MAX(<col>) => return maximum number in colomn
+AVG(<col>) => return averge number in colomn
+SUM(<col>) => return sumation of number in colomn
+IF(<con>,<query>,<query>) => execute query based on condtion 
+IFNULL(<col>, <val>) => return value if the colomn equla null
+COALESCE(<col>, <val>) => return value if the colomn equla null
+
+=================================================
+EXISITS operator example
+=================================================
+parent table => Customers
+customer_id	  first_name	last_name	age	 country
+1			  John		     Doe	     31	  USA
+2			  Robert		 Luna	     22	  USA
+3			  David		     Robinson	 22	  UK
+4			  John		     Reinhardt	 25	  UK
+5			  Betty		     Doe	     28	  UAE
+
+child table => Orders
+order_id	item	    amount	customer_id
+1	        Keyboard	400	        4
+2	        Mouse	    300	        4
+3	        Monitor	    12000	    3
+4	        Keyboard	400	        1
+5	        Mousepad	250	        2
+
+SELECT first_name
+FROM Customers
+WHERE EXISTS (
+  				SELECT 1 
+             	FROM Orders 
+  				WHERE Customers.customer_id = Orders.customer_id AND Orders.amount > 300
+             );
+
+result table
+first_name
+John
+David
+John

@@ -1,0 +1,69 @@
+========================================================
+take snapshot for all modifiction and file in staging area
+========================================================
+	git commit -m "msg discripe what you add locacl Rep"
+
+========================================================
+take snapshot for all modifiction and file even if not in staging area
+========================================================
+	git commit -a -m "msg discripe what you add locacl Rep"
+
+========================================================
+Display Commit History of Git Repo 
+========================================================
+	git log
+		Display Commit History of Git Repo 
+
+========================================================
+reguler
+========================================================
+	git reset <commitHash>
+	unstage
+		(use "git add/rm <file>..." to update what will be committed)
+		(use "git restore <file>..." to discard changes in working directory)
+			It displays the files that commit and modified after commiting Respect to commit hash
+	untraked
+		(use "git add <file>..." to include in what will be committed)
+			It displays all files that be add or modifide or unracked Respect to last commit
+========================================================
+misxd
+========================================================
+	git reset --mixed <commitHash>
+	unstage
+		(use "git add/rm <file>..." to update what will be committed)
+		(use "git restore <file>..." to discard changes in working directory)
+			It displays the files that commit and modified after commiting Respect to commit hash
+	untraked
+		(use "git add <file>..." to include in what will be committed)
+			It displays all files that be add or modifide or unracked Respect to last commit	
+
+========================================================
+soft
+========================================================
+	move the current branch reference (HEAD) to the specified commit while leaving the index (staging area) and the working directory unchanged. 
+	the command not update any thing it show changes between commit  
+		git reset --soft <commitHash>
+	It does not modify any file content
+	Doesn't delete files
+	Dosen't add file 
+	It leaves you the choice to take appropriate action based on the changes you want or do not want
+	stage
+		(use "git restore --staged <file>..." to unstage)
+			It displays the files that staged and not modified after the staging Respect to last commit
+			It displays the files that commit and not been modified after commiting Respect to last commit
+			It displays the files that staged and modified after the staging Respect to last commit
+			It displays the files that commit and modified after commiting Respect to last commit
+	unstage
+		(use "git add/rm <file>..." to update what will be committed)
+		(use "git restore <file>..." to discard changes in working directory)
+			It displays the files that staged and modified after the staging Respect to last commit
+			It displays the files that commit and modified after commiting ( Respect to last commit and commit hash )
+	untraked
+		(use "git add <file>..." to include in what will be committed)
+			It displays files that have not been committed or staged Respect to last commit	
+
+========================================================
+hard
+========================================================
+	moves the HEAD to the specified commit and updates the index (staging area) and the working directory to match that commit
+	git reset --hard <commitHash>

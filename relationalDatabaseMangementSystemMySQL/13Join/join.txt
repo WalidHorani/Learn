@@ -1,0 +1,25 @@
+===========================================================
+JOIN
+===========================================================
+JOIN : used to combine colomn from many tables in rsult table based in related colomn between
+INNER JOIN => return records that have matching values in both tables
+LEFT JOIN => return all records from left table and the matched record from right table
+RIGHT JOIN => return all records from right table and the matched record from left table
+CROSS JOIN => return all recourd from both tabel
+SELF JOIN => reguler join but the table joind with itself
+
+[ INNER JOIN || LEFT JOIN || RIGHT JOIN ]
+	SELECT <tableName1>.<col>, <tableName2>.<col>
+	FROM <tableName1>
+	[ INNER JOIN || LEFT JOIN || RIGHT JOIN ] <tableName2>
+	ON <tableName1>.<col> = <tableName2>.<col>;
+
+CROSS JOIN 
+	SELECT <tableName1>.<col>, <tableName2>.<col>
+	FROM <tableName1>
+	CROSS JOIN <tableName2>
+
+SELF JOIN
+	SELECT <tableName1>.<col>, <tableName2>.<col>
+	FROM <tableName1><tableName2>
+	WHERE <con>

@@ -1,0 +1,17 @@
+==================================================================
+aliases intr
+==================================================================
+aliases : used to give table or coloumn in table temporary name to make it more readable
+aliases only exists for the duratoin of that queary
+
+==================================================================
+create aliases for colomn
+==================================================================
+SELECT <col> AS <aliasName>, <col> AS <aliasName>
+FROM <tableName> ;
+
+==================================================================
+create aliases for table
+==================================================================
+SELECT <col>, <col>
+FROM <tableName> AS <aliasName>

@@ -1,0 +1,21 @@
+==============================================================================
+intro
+==============================================================================
+.gitignore file used to specify intentionally untracked files that Git should ignore you do not want to commit to your repository
+By listing these files or directories in a .gitignore file, you prevent them from being tracked by Git.
+git will ignore any matching files or directories when perfor operation like git status git add git commit
+
+
+this gitignore file content might look like :
+#ignore build artifacts
+build/
+#ignore temporary files except w.tmp
+*.tmp
+!w.tmp
+#ignore sensitive information
+config.ini 
+
+==============================================================================
+create gitignore file
+==============================================================================
+touch .gitignore

@@ -1,0 +1,31 @@
+============================================================
+intro
+============================================================
+tage used to mark significant point in history such as releases or milestones
+
+============================================================
+list all tag for Repo
+============================================================
+list all tag for Repo
+	git tag
+list all tag that match pattren
+	git tag -l <pattren>
+
+============================================================
+create tag
+============================================================
+git tag <tagName>
+git tag -a <tagName> -m <"tagMsg">
+
+============================================================
+delete tag
+============================================================
+delete tage localy
+	git tag -d <tagName>
+delete tage remotly
+	git push <remoteBranchName><localBranchName> --delete <tagName>
+
+============================================================
+tag verfy
+============================================================
+git -v <tagName>

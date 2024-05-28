@@ -1,0 +1,11 @@
+========================================================
+push commit from your local Repo to remote Repo
+========================================================
+git push
+git push -u <RemoteBranchName> <localBranchName>
+
+=================================================================================
+fetch latest changes from remote Repo and merge them into the currently checked-out branch
+=================================================================================
+git pull
+git pull <RemoteBranchName>

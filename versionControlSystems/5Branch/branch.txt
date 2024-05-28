@@ -1,0 +1,54 @@
+========================================================
+introdaction
+========================================================
+branch : is a new seperate version of the main Repo Allow you to Work on defferent part of a project without impacting the main branch
+
+========================================================
+list all branch in local Repo
+========================================================
+git branch
+
+========================================================
+list all branch in local Repo && Remote Repo
+========================================================
+git branch -a
+
+========================================================
+create new branch
+========================================================
+git branch <branchName>
+
+========================================================
+delete branch
+========================================================
+this comand run only if all changes are already merged into currently branch
+	git branch -d <branchName>
+force delete branch even if changes are not merged into currently branch
+	git branch -D <branchName>
+
+========================================================
+rename branch
+========================================================
+git branch -m <newBranchName>
+
+========================================================
+switching to spasific branch
+========================================================
+//Note if you make commit in current branch then you switch to another branch then change will apply automaticly to branch you swith to it
+//to prevent this behever use stash
+git checkout <branchName>
+
+========================================================
+create new branch and switching to it directly
+========================================================
+git checkout -b <newBranchName>
+
+========================================================
+show differences between commits on local branch and remote master branch
+========================================================
+git diff <remoteBranchName>/<localBranchName>
+
+========================================================
+merge change from branch to current branch
+========================================================
+git merge <branchName>

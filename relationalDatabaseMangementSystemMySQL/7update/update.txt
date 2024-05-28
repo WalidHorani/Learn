@@ -1,0 +1,28 @@
+================================================
+update itro
+================================================
+update statment : used to update recodes
+//LIKE => match patren with colomn value
+//IN => match colomn in set of value
+//BETWEEN => match if colomn value in range
+//EXISTS => 
+//where <col> = ANY(SELECT STATMENT) => return true if any of record return by ANY meet the condition 
+//where <col> = ALL(SELECT STATMENT) => return true if all of record return by ALL meet the condition 
+general syntax
+	UPDATE <tableName>
+	SET <col>=<updatedValue>, <col>=<updatedValue>
+	[ WHERE <con> AND <con> OR <con> NOT <con> ]
+	[ WHERE <col> IS NULL || <col> IS NOT NULL ]
+	[ WHERE <col> LIKE <wildCard> || <col> NOT LIKE <wildCard> ]
+	[ WHERE <col> IN ( [ <val>, <val> || SELECT STATMENT ] ) || <col> NOT IN ( [ <val>, <val> || SELECT STATMENT ] ) ]
+	[ WHERE <col> BETWEEN <val> AND <val> || <col> NOT BETWEEN <val> AND <val> ]
+	[ WHERE EXISTS ( SELECT 1 FROM <chlildTable> WHERE <primaryKey.paentTable> = <forginKey.childTable> AND (<con>) ) ]
+	[ WHERE <col> < = || <> || != || > || < || >= || <= > ANY(SELECT STATMENT)
+	[ WHERE <col> < = || <> || != || > || < || >= || <= > ALL(SELECT STATMENT)
+	
+================================================
+update record based on condtion
+================================================
+UPDATE <tableName>
+SET <col>=<updatedValue>, <col>=<updatedValue>
+WHERE <con>

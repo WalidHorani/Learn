@@ -1,0 +1,26 @@
+================================================
+insert itro
+================================================
+insert statment : used to insert new record in table
+	INSERT INTO <tableName> [ ( <col>, <col> ) ]
+	VALUES( <v1>, <v2> )
+
+================================================
+insert into all colomn in table 
+================================================
+INSERT INTO <tableName> 
+VALUES( <v1>, <v2> )
+
+================================================
+insert into spacific colomn in table 
+================================================
+INSERT INTO <tableName> ( <col>, <col> )
+VALUES( <v1>, <v2> )
+
+=============================================================
+insert Into Select
+=============================================================
+INSERT INTO SELECT : used to copy data from one table and insert it into another table
+data type in source and target table must be matches
+	INSERT INTO <tableNameToInsertOnIt> (<col>, <col>, <col>)
+	SELECT <col>, <col>, <col> FROM <tableNameInsertFrom>;
