@@ -1,0 +1,142 @@
+Basic Level Projects
+/*
+|--------------------------------------------------------
+|   1. To-Do List Application
+|--------------------------------------------------------
+|
+|   Description:
+|   A simple To-Do List application where users can add, view, edit, and delete tasks. It includes basic user authentication and task management.
+|   Goal of the Project:
+|       Learn the basics of Laravel including routing, controllers, models, and views.
+|       Implement CRUD operations.
+|       Understand user authentication and simple session management.
+|   Source:
+|       Laravel Task App Tutorial
+|		https://laravel-news.com/your-first-laravel-application
+*/
+
+/*
+|--------------------------------------------------------
+|   2. Blog Application
+|--------------------------------------------------------
+|
+|   Description:
+|   A Blog Application where users can create, edit, delete, and view blog posts. It also includes user authentication and comment functionality.
+|   Goal of the Project:
+|       Learn to set up a basic blog structure with Laravel.
+|       Implement user authentication and authorization.
+|       Understand relationships in Laravel Eloquent (one-to-many relationships for posts and comments).
+|   Source:
+|       Laravel Blog Tutorial
+*/
+
+/*
+|--------------------------------------------------------
+|   3. Contact Form
+|--------------------------------------------------------
+|
+|   Description:
+|   A Contact Form application where users can submit inquiries through a form. The submitted inquiries are stored in a database and an email
+|   notification is sent to the admin.
+|   Goal of the Project:
+|       Understand form handling and validation in Laravel.
+|       Learn to send emails using Laravel’s mail functionality.
+|       Implement basic CRUD operations for managing inquiries.
+|   Source:
+|       Laravel Contact Form Tutorial
+*/
+
+Intermediate Level Projects
+/*
+|--------------------------------------------------------
+|   4. Content Management System (CMS)
+|--------------------------------------------------------
+|
+|   Description:
+|   A CMS that allows users to create, manage, and modify content on a website. It includes user authentication, role-based access control,
+|   content |creation, and media uploads.
+|   Goal of the Project:
+|       Implement a WYSIWYG editor for content creation.
+|       Understand advanced user authentication and role-based access control.
+|       Learn to manage media uploads and file storage.
+|   Source:
+|       Building a CMS with Laravel
+*/
+
+/*
+|--------------------------------------------------------
+|   5. Forum Application
+|--------------------------------------------------------
+|
+|   Description:
+|   A Forum Application where users can create discussion threads, post replies, and engage in conversations on various topics. Features include 
+|   user authentication, thread and reply management, and real-time notifications.
+|   Goal of the Project:
+|       Implement real-time notifications using Laravel Echo and Pusher.
+|       Understand nested relationships (threads and replies).
+|       Implement search functionality using Laravel Scout and a search engine like Algolia.
+|   Source:
+|       Laravel Forum Tutorial
+|		https://laracasts.com/series/lets-build-a-forum-with-laravel
+*/
+
+/*
+|--------------------------------------------------------
+|   6. Booking System
+|-------------------------------------------------------
+|
+|   Description:
+|   A Booking System where users can book services or resources such as rooms or appointments. It includes features like availability checking, |   booking management, user authentication, and email notifications.
+|   Goal of the Project:
+|       Implement complex scheduling and availability checking logic.
+|       Integrate with third-party calendar APIs (e.g., Google Calendar).
+|       Handle recurring bookings and time-based constraints.
+|   Source:
+|       Building a Booking System with Laravel
+*/
+
+    Very Advanced Level Projects
+/*
+|--------------------------------------------------------
+|   7. Multi-Tenant SaaS Application
+|--------------------------------------------------------
+|   Description:
+|   A Multi-Tenant SaaS Application that serves multiple tenants, each with isolated data and customizable configurations. It involves creating a |   scalable architecture for multiple tenants, tenant-specific data, and user management.
+|   Goal of the Project:
+|       Design and implement a multi-tenant architecture in Laravel.
+|       Understand database partitioning strategies.
+|       Implement tenant-specific configurations and middleware.
+|       Handle billing and subscription management.
+|   Source:
+|       Building a Multi-Tenant SaaS with Laravel
+*/
+
+/*
+|--------------------------------------------------------
+|   8. Real-Time Chat Application
+|--------------------------------------------------------
+|   Description:
+|   A Real-Time Chat Application that allows users to send and receive messages instantly. It includes real-time communication features like live |   chat, group messaging, presence indication, and notifications.
+|   Goal of the Project:
+|       Integrate WebSockets using Laravel Echo and Pusher or Socket.IO.
+|       Implement real-time notifications and presence indication.
+|       Handle large volumes of real-time data efficiently.
+|   Source:
+|       Building a Real-Time Chat Application with Laravel
+|		https://pusher.com/tutorials/chat-laravel/#listening-for-message-sent-event
+*/
+
+/*
+|--------------------------------------------------------
+|   9. Advanced E-Commerce Platform
+|--------------------------------------------------------
+|   Description:
+|   An Advanced E-Commerce Platform with features like multi-vendor support, advanced product search and filtering, recommendation engines, order |   management, payment integration, and robust analytics.
+|   Goal of the Project:
+|       Implement multi-vendor architecture.
+|       Integrate advanced search and filtering using Elasticsearch or Algolia.
+|       Build a recommendation engine using machine learning techniques.
+|       Develop complex order management and payment processing workflows.
+|   Source:
+|       Building an Advanced E-Commerce Platform with Laravel
+*/

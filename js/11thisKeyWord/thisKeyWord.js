@@ -38,7 +38,7 @@ obj2.getName(); //obj2
 this keyword && new keyword binding
 /*=============================================================*/
 //this keyword is determind at runtime (when function is called)
-//so when you call constractor function with new key word => new functionCounstrctorName()
+//so when you call constractor function with new keyword => new functionCounstrctorName()
 //js create object internally and assign this value to it
 function createObject(){
 	this.name = "walid" ;
@@ -126,7 +126,7 @@ child.greet();
 /*=============================================================
 this insaid class have tow context
 /*=============================================================*/
-//if object he deling with property or method then this refer to it
+//if object deling with property or method then this refer to it
 //if class deling with static property or static method then this refer to class
 class Person{
   instanceField = this ;

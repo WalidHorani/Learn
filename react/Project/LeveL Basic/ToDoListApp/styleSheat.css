@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: auto;
+  -moz-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+    color:white;
+    background-color:black;
+}
+
+h1 {
+    color:#ff7900;
+    text-align:center;
+}
+span{
+     color:#ff7900;
+}
+h2{
+     text-align:center;
+}
+ul{
+    list-style-type: none;
+    padding:0px;
+}
+#addTaskButton{
+    color:black;
+    background-color:#04aa6d ;
+    text-align: center;
+    margin:5vw ;
+    border-radius:2vw
+}
+#editeButton{
+    color:black;
+    background-color:#008cba;
+    text-align: center;
+    margin: 5px 1vw ;
+     border-radius:2vw
+}
+#deleteButton{
+    color:black;
+    background-color:#f44336 ;
+    text-align: center;
+     border-radius:2vw
+}
+#updateButton{
+    color:black;
+    background-color:#04aa6d ;
+    text-align: center;
+     border-radius:2vw
+}
+#inputAddTask{}
+#inputEditTask{}

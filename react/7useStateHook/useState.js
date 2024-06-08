@@ -113,6 +113,7 @@ export default function App(){
     );
 }
 
+//
 /****************************************************************************************
 updating object in state
 *****************************************************************************************/
@@ -209,6 +210,7 @@ export default function App(){
     );
 }
 
+//
 /****************************************************************************************
 updating Array in state
 *****************************************************************************************/
@@ -350,6 +352,310 @@ export default function App(){
                     click
                 </button>
             </div>
+        </div>
+    );
+}
+
+/****************************************************************************************
+State Structured
+*****************************************************************************************/
+/*
+    1- Group state variable in one state varible if :
+        1- Update many state variable at same time
+        2- you dont know how many state variable you need (example the user can add input filed andd witie on it)
+        3- all state varible that have boolean value and related in each other
+            1- update at same time 
+            2- state variable will never be true at same time
+            3- state variable will never be false at same time
+            4- state variable will never be same value at same time
+    2- state value ( bool or any other data type )
+        1- any state value that not seen by user in your app make it boolean type
+    3-dont use new state varible if you can calculate them from props or other state value
+*/
+//update the x postion and y postion at same time so we but it in single state varible object
+import {useState} from "react";
+export default function App(){
+    mouseCordinate = { x:0,y:0};
+    let [ mousePosition, setMousePosition] =useState(mouseCordinate); 
+    style = {
+        backgroundColor:"red",
+        width:"20px",
+        height:"20px",
+        borderRadius:"50%",
+        position: 'absolute',
+        transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+        top:"0",
+        left:"0",
+    };
+    function handlePointerMove(e){
+        let newMousePostion = {...mousePosition} ;
+        newMousePostion.x=e.clientX;
+        newMousePostion.y=e.clientY;
+        setMousePosition(newMousePostion);
+    }
+    return (
+        <div 
+            style={{position:"relative",width: '100vw',height: '100vh',}}
+            onPointerMove={handlePointerMove}
+        >
+            <div style={style} ></div>
+        </div>
+    );
+} 
+//all state varible that have boolean value and related in each other
+import {useState} from "react";
+export default function App(){
+    let [ text, setText ] = useState("");
+    let [appState, setAppState] = useState("isNotTyping");
+   
+    let isTyping = (appState  === "isNotTyping" || appState  === "isTyping") ;
+    let isButtonActive = appState  === "isTyping" ;
+    let isSending = appState  === "isSending" ; 
+    let isResponceRecived = appState  === "isResponseRecived" ; 
+    
+    function handleChangeTextAreaMsg(e){
+        setText(e.target.value)
+        setAppState("isTyping");
+    }
+    function handleClickSend(){
+        setAppState("isSending");
+        setTimeout(()=> {setAppState("isResponseRecived")},5000)
+    }
+    return (
+        <div>
+            {isTyping&&(
+                    <>
+                        <h1>walid horanid</h1>
+                        <p>send masseg to me</p>
+                        <textarea value={text} onChange={handleChangeTextAreaMsg}/><br/>
+                         <button
+                            disabled={!isButtonActive} 
+                            onClick={handleClickSend}
+                        >
+                            Send
+                        </button>
+                    </>
+                )
+            }
+            {isSending && 
+                <p>Sending........</p>
+            }
+            {isResponceRecived && <h2>thanks Your mesge recived</h2>}
+        </div>
+    );
+}
+
+//
+/****************************************************************************************
+sharing State between component
+*****************************************************************************************/
+/*
+    lifting state up : if you have two or more component that have update to gather then you need to share state bettwen them
+    you can share state betwen component buy make a state in first common parent and then send the state and state updte function
+    to all commponent that update to gather depending on this state as props then any component update the state this will reflected on all component
+    that depending on this state in rendirng 
+*/ 
+//
+import {useState} from "react";
+export default function App(){
+    let [ activePersonState, setActivePerson ] = useState("Walid") ;    
+    
+    let isButtonWalidActive = activePersonState !== "Walid" ; 
+    let isButtonAhmedActive = activePersonState !== "Ahmed" ;  
+    let isButtonAbdActive = activePersonState !== "Abd" ;  
+
+    return (
+        <div 
+            style={{
+                borderWidth:"5px 0px",
+                borderStyle:"solid",
+                borderColor:"black",
+            }}>
+            <h1>Person Deteled</h1>
+            <Person 
+                name="Walid"
+                isActiveButton = {isButtonWalidActive}
+                updatePersonState={setActivePerson}
+            >
+                    my Name is walid im 30 Year old
+            </Person>
+            <Person 
+                name="Ahmed"
+                isActiveButton = {isButtonAhmedActive}
+                updatePersonState={setActivePerson}
+            >
+                    my Name is ahmed im 29 Year old
+            </Person>
+            <Person 
+                name="Abd"
+                isActiveButton = {isButtonAbdActive}
+                updatePersonState={setActivePerson}
+            >
+                    my Name is abd im 23 Year old
+            </Person>
+        </div>
+    );
+}
+//person commponent
+function Person({name,children,isActiveButton,updatePersonState}){
+    function handleClickShowPerson(){
+        updatePersonState(name);
+    }
+    return (
+        <div style={{border:"2px solid black",margin:"3px"}}>
+            <h3>{name}</h3>
+            {!isActiveButton && <p>{children}</p>}
+            { isActiveButton &&
+                (
+                        <button onClick={handleClickShowPerson} >
+                            Show
+                        </button>
+                )}
+        </div>
+    );
+}
+
+//
+/****************************************************************************************
+preseving state and resting state
+*****************************************************************************************/
+//state are saved insaid react not insaid componant as internal array
+//react attach state with compnant using postion of commponent in render tree
+//render tree is tree structur consasit of node each nood represnt component insaid each componant (Children, Prps, state, .....)
+/*
+    preserving state : if any of thes condation not meet the state will be reset to initial value
+        1- component re-render in same postion in render tree
+        2- componant have the same key when re-rendring
+        3- commponant not mounting
+
+    Note1:
+        here Comp1 is render at same postion so it will be preserve state all if satatment consider one blook
+        function CompApp(){
+            let [ isState, setIsState ] = useState();
+            if(isState){
+                return(
+                    <Comp1 name="walid"/>
+                );
+            }else{
+                 return(
+                    <Comp1 name="ahmed"/>
+                );
+            }
+        }
+
+    Note2:
+        we dont define component insaide componenet because this look bellow
+        commponent Comm1 will reset state every time CommpApp re-render 
+        function CommpApp(){
+            function Commp1(){
+                let [anyState, setAnyState() ] = useState(0);
+                return (jsx);
+            }
+            return(
+                <>
+                    <Commp1 />
+                </>
+            );
+        }
+
+    Note3: 
+        here Comp1 is render at same postion so it will be preserve state ternery operator consider one blook
+        here even ternery operator consider one blook Comp2 is render at diff postion so it will be reset state
+        function CompApp(){
+            let [ isState, setIsState ] = useState();
+            return (
+                <>
+                    {isState ? <Comp1 name="walid"/>: <Comp1 name="ahmed"/>}
+                    {isState ? <Comp2 name="walid"/>: <div><Comp2 name="ahmed"/></div>}
+                </>
+            );
+        }
+
+    Note4:
+        in logical condatinal operator will acte every one as seperate instance and Reserve place in render tree for each componant
+        even if not rendering it will Reserve place for it so every time the state chaing it will be rened a new component Mounting
+        and reset the state for the component that UnMount 
+        function CompApp(){
+            let [ isState, setIsState ] = useState();
+            return (
+                <>
+                    {isState && <Comp1 name="walid" />}
+                    {!isState && <Comp1 name="walid" />}
+                </>
+            );
+        }  
+*/
+import {useState} from "react";
+export default function App(){
+    let [ isRenderAtDiffPostion, setIsRenderAtDiffPostion ] = useState(false);
+    let [ isMount, setIsMount ] = useState(true);
+    let [key, setKey] = useState(1);
+    let [key2, setKey2] = useState(1);
+    function handleClickRerinderCounter2AtDeffPostion(){
+         let newIsRenderAtDiffPostion = !isRenderAtDiffPostion ;
+        setIsRenderAtDiffPostion(newIsRenderAtDiffPostion);
+    }
+    function handleCheckedMountUnMount(e){
+        setIsMount(e.target.checked);
+    }
+    function handleChangeKey(e){
+        setKey(e.target.value);
+    }
+    function handleClickAddKey(){
+        /*if(key !== key2){
+            setKey2(key);
+        }*/
+        setKey2(key);
+    }
+    return (
+        <div > 
+            {isMount && <Counter  name="Counter1"/>}
+            {
+                isRenderAtDiffPostion?
+                (
+                    <div>
+                        <p>render counter 2 at defferant postion</p>
+                        <Counter name="Counter2"/>
+                    </div>
+                ):
+                (
+                    <Counter name="Counter2"/>
+                )
+            }
+            <Counter  key={key2} name="Counter3"/>
+            <lable>Add Counter 1 by Click on Add one</lable><br /> 
+            <lable>Add Counter 2 by Click on Add one</lable><br /> 
+            <label>Re-Render Counter 2 at differant postion will reset the state of it</label><br/>
+            <button onClick={handleClickRerinderCounter2AtDeffPostion}>Click</button><br/>
+            <label>{isMount?"UnMount":"Mont"} Counter 1 will reste the state of it</label><br/>
+            <input 
+                type= "checkbox" 
+                checked={isMount}
+                onChange={handleCheckedMountUnMount} />
+            <br/>
+            <label>Counter 3 have key=1 when re-rendering it with </label><br/>
+            <label>differant key it will reset the stata</label><br/>
+            <label>try add one without change key</label><br/>
+            <label>now in input field chnge the key to any number</label><br/>
+            <label>then click Change key button</label><br/>
+            <input onChange={handleChangeKey}/>
+            <button onClick={handleClickAddKey}>Change Key</button><br/>
+        </div>
+    );
+}
+function Counter({name,key}){
+    let [ counterState, setCounterState ] = useState(0) ;
+    function handleClickAddOne(){
+        setCounterState(counterState+1);
+    }
+    return (
+        <div 
+            key={key}
+            style={{border:"2px solid black",margin:"3px",width:"25vw",textAlign: "center"}}
+        >
+            <h1>{name}</h1>
+            {counterState}<br />
+            <button onClick={handleClickAddOne}>Add One</button>
         </div>
     );
 }

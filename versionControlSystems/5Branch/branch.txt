@@ -34,8 +34,6 @@ git branch -m <newBranchName>
 ========================================================
 switching to spasific branch
 ========================================================
-//Note if you make commit in current branch then you switch to another branch then change will apply automaticly to branch you swith to it
-//to prevent this behever use stash
 git checkout <branchName>
 
 ========================================================

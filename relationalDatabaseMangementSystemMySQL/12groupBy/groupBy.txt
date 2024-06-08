@@ -1,7 +1,7 @@
 =================================================================
 GROUP BY 
 =================================================================
-where cant use with function so we use HAVING it do like where 
+WHERE cant use with function so we use HAVING it do like where 
 GROUP BY : group row that have the same values into summery row 
 	SELECT functionName(<col>), <col>
 	FROM <tableName>
