@@ -8,6 +8,9 @@
 		}
 	}
 	class linkedQueue{
+		private $size;
+		private $rare;
+		private $front;
 		public function __construct(){
 			$this->size = 0 ;
 			$this->rare = null ;

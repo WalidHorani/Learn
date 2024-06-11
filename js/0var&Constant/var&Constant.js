@@ -2,13 +2,13 @@
 |-----------------------------------------------------
 |	Var And Constant
 |-----------------------------------------------------
-|	1-	who to define variable  ?
+|	1-	how to define variable  ?
 |			let varName ;
 |			var varName ;
-|	2-	who to define variable and initlazi it ?
+|	2-	how to define variable and initlazi it ?
 |			let varName = value ;
 |			var varName = value ;
-|	3-	who to define constant and initlazi it ?
+|	3-	how to define constant and initlazi it ?
 |			const CONSTANTNAME = value ;
 |	4-	can we re-define variable ?
 |			yes if we using var keyword

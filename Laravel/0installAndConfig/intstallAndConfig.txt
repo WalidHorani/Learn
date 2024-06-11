@@ -1,0 +1,26 @@
+/*
+|--------------------------------------------------------------
+|	install and config
+|--------------------------------------------------------------
+|	1- 	download and install ide example => vs code 
+|	2- 	download and install git 
+|	3- 	download xampp
+|	4-	download composer
+|	5-	check of the composer instalation correctly
+|			1-	open git basch
+|			2-	type commeand composer
+|	6-	run xampp apathce server and mysql
+|	7-	go to folder want to create project on it and open get bash
+|			take this command from laravel decoumntaion
+|				1-	composer global require laravel/installer
+|				1-	composer create-project laravel/laravel example-app
+|	8-	create db 
+|			1- 	ceate user account 
+|			2-	connect the user with db
+|	9-	connect db with laravel project using .env file
+|			0-	set the db connection
+|			1- 	set the db name
+|			2-	set the db username
+|			3- 	set the db password
+|	10-	git bash => php artisan migrate
+*/
