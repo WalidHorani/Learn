@@ -9,17 +9,17 @@ CROSS JOIN => return all recourd from both tabel
 SELF JOIN => reguler join but the table joind with itself
 
 [ INNER JOIN || LEFT JOIN || RIGHT JOIN ]
-	SELECT <tableName1>.<col>, <tableName2>.<col>
-	FROM <tableName1>
-	[ INNER JOIN || LEFT JOIN || RIGHT JOIN ] <tableName2>
-	ON <tableName1>.<col> = <tableName2>.<col>;
+	SELECT <parentTable>.<primaryKey>, <childTable>.<forginKey>
+	FROM <parentTable>
+	[ INNER JOIN || LEFT JOIN || RIGHT JOIN ] <childTable>
+	ON <parentTable>.<primaryKey> = <childTable>.<forginKey>;
 
 CROSS JOIN 
-	SELECT <tableName1>.<col>, <tableName2>.<col>
-	FROM <tableName1>
-	CROSS JOIN <tableName2>
+	SELECT <parentTable>.<primaryKey>, <childTable>.<forginKey>
+	FROM <parentTable>
+	CROSS JOIN <childTable>
 
 SELF JOIN
-	SELECT <tableName1>.<col>, <tableName2>.<col>
-	FROM <tableName1><tableName2>
+	SELECT <A1>.<col>, <A2>.<col>
+	FROM <tableName1> A1, <tableName1> A2
 	WHERE <con>

@@ -46,57 +46,57 @@
 |
 |	some logic need to run once in entire lifesicl off app this code must put outsad of componant and Effect because it will run only onece 
 */
-//
-import { useRef } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-export default function App(){ 
-    let [isAnotherPage, setIsAnotherPage] = useState(false);
-    function handleClickChangePage(){
-        setIsAnotherPage( !isAnotherPage );
-    }
-    return (
-        <div>
-            {isAnotherPage?<h1>another page</h1>:<Comp1 />}
-            <button onClick={handleClickChangePage}>
-                {isAnotherPage?"back to your page":"Go to Another Page"}
-            </button>
-        </div>
-    );
-}
-//
-function Comp1(){
-    let [counter, setCounter]=useState(0) ;
-    let [reconnectNumber,setReconnectNumber] = useState(0);
-    useEffect(effectFunction,[reconnectNumber]);
-    function effectFunction(reconnectNumber){
-        let createConnection = {
-        connect(){console.log("conecting")},
-        disconnect(){console.log("disconnecting")}
-        } ;
-        createConnection.connect();
-        return(
-            () => {
-                createConnection.disconnect();
-            }
+    //
+    import { useRef } from 'react';
+    import { useState } from 'react';
+    import { useEffect } from 'react';
+    export default function App(){ 
+        let [isAnotherPage, setIsAnotherPage] = useState(false);
+        function handleClickChangePage(){
+            setIsAnotherPage( !isAnotherPage );
+        }
+        return (
+            <div>
+                {isAnotherPage?<h1>another page</h1>:<Comp1 />}
+                <button onClick={handleClickChangePage}>
+                    {isAnotherPage?"back to your page":"Go to Another Page"}
+                </button>
+            </div>
         );
     }
-    function handleClickAddOne(){
-        setCounter( counter + 1) ;
+    //
+    function Comp1(){
+        let [counter, setCounter]=useState(0) ;
+        let [reconnectNumber,setReconnectNumber] = useState(0);
+        useEffect(effectFunction,[reconnectNumber]);
+        function effectFunction(reconnectNumber){
+            let createConnection = {
+            connect(){console.log("conecting")},
+            disconnect(){console.log("disconnecting")}
+            } ;
+            createConnection.connect();
+            return(
+                () => {
+                    createConnection.disconnect();
+                }
+            );
+        }
+        function handleClickAddOne(){
+            setCounter( counter + 1) ;
+        }
+        function handleClickReconnect(){
+            setReconnectNumber( reconnectNumber + 1 ) ;
+        }
+        return (
+            <>
+                <h1>Look To Your Console</h1>
+                <p>Add One To Counter</p>
+                Counter : {counter} <br/>
+                <button onClick ={handleClickAddOne}>Add One</button>
+                <button onClick={handleClickReconnect}>Re-Connect</button>
+            </>
+        );
     }
-    function handleClickReconnect(){
-        setReconnectNumber( reconnectNumber + 1 ) ;
-    }
-    return (
-        <>
-            <h1>Look To Your Console</h1>
-            <p>Add One To Counter</p>
-            Counter : {counter} <br/>
-            <button onClick ={handleClickAddOne}>Add One</button>
-            <button onClick={handleClickReconnect}>Re-Connect</button>
-        </>
-    );
-}
 
 //
 /*
@@ -105,67 +105,67 @@ function Comp1(){
 |-------------------------------------------
 |
 */
-// isDarkThem props which can change, is included in the dependencies of the effect.
-//Problem: Including theme in the dependencies causes the effect to re-run and the chat to reconnect whenever the theme changes, 
-//which is undesirable.
-//The solution is to use useEffectEvent to separate the non-reactive logic (showing the notification) from the reactive effect.
-//App
-import { useState, useEffect, useRef } from 'react';
-import { ChatRome } from './chat.js';
-import { showNotification } from './notifications.js';
-export default function App() {
-    let [roomId, setRoomId] = useState(null);
-    let [ isDarkThem, setisDarkThem ] = useState(false);
-    function handleSelectRoomId(e){
-        setRoomId(e.target.value) ;
+    // isDarkThem props which can change, is included in the dependencies of the effect.
+    //Problem: Including theme in the dependencies causes the effect to re-run and the chat to reconnect whenever the theme changes, 
+    //which is undesirable.
+    //The solution is to use useEffectEvent to separate the non-reactive logic (showing the notification) from the reactive effect.
+    //App
+    import { useState, useEffect, useRef } from 'react';
+    import { ChatRome } from './chat.js';
+    import { showNotification } from './notifications.js';
+    export default function App() {
+        let [roomId, setRoomId] = useState(null);
+        let [ isDarkThem, setisDarkThem ] = useState(false);
+        function handleSelectRoomId(e){
+            setRoomId(e.target.value) ;
+        }
+        function handleChangeCheck(e){
+            setisDarkThem(e.target.checked);
+        }
+      return (
+        <div>
+            <select 
+                value={roomId}
+                onChange={handleSelectRoomId}
+            >
+                <option value="genral">genral</option>
+                <option value="music">music</option>
+                <option value="sport">sport</option>
+            </select><br/>
+            <input 
+                type="checkbox" 
+                checked={isDarkThem}
+                onChange={handleChangeCheck}
+            />
+            <label>
+                Use Dark Them
+            </label>
+            <ChatRome 
+                roomId = {roomId}
+                isDarkThem = {isDarkThem}
+            />
+        </div>
+      );
     }
-    function handleChangeCheck(e){
-        setisDarkThem(e.target.checked);
+    //chat
+    import { useState, useEffect, useRef} from 'react';
+    export function ChatRome({roomId,isDarkThem}){
+        useEffect(useEffectFunction,[roomId,isDarkThem]);
+        let fColor = isDarkThem?"red":"black" ;
+        function useEffectFunction(){
+            let connection = {
+                connect(){console.log("connection stablished");},
+                disconnect(){console.log("connection Closed");}
+            };
+            connection.connect();
+            return (() => {
+                connection.disconnect();
+            });
+        }
+        return(
+            <>
+                <h1>Welcom To Rome {roomId} </h1>
+                <p style={{color:fColor}}>Connected!</p>
+            </>
+        );
     }
-  return (
-    <div>
-        <select 
-            value={roomId}
-            onChange={handleSelectRoomId}
-        >
-            <option value="genral">genral</option>
-            <option value="music">music</option>
-            <option value="sport">sport</option>
-        </select><br/>
-        <input 
-            type="checkbox" 
-            checked={isDarkThem}
-            onChange={handleChangeCheck}
-        />
-        <label>
-            Use Dark Them
-        </label>
-        <ChatRome 
-            roomId = {roomId}
-            isDarkThem = {isDarkThem}
-        />
-    </div>
-  );
-}
-//chat
-import { useState, useEffect, useRef} from 'react';
-export function ChatRome({roomId,isDarkThem}){
-    useEffect(useEffectFunction,[roomId,isDarkThem]);
-    let fColor = isDarkThem?"red":"black" ;
-    function useEffectFunction(){
-        let connection = {
-            connect(){console.log("connection stablished");},
-            disconnect(){console.log("connection Closed");}
-        };
-        connection.connect();
-        return (() => {
-            connection.disconnect();
-        });
-    }
-    return(
-        <>
-            <h1>Welcom To Rome {roomId} </h1>
-            <p style={{color:fColor}}>Connected!</p>
-        </>
-    );
-}

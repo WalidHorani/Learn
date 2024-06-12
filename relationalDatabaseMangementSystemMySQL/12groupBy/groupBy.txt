@@ -3,9 +3,9 @@ GROUP BY
 =================================================================
 WHERE cant use with function so we use HAVING it do like where 
 GROUP BY : group row that have the same values into summery row 
-	SELECT functionName(<col>), <col>
+	SELECT functionName(<col1>), <col2>
 	FROM <tableName>
-	GROUP BY <col>
+	GROUP BY <col2>
 	HAVING <con>
 	
 table name => Orders 

@@ -16,7 +16,9 @@ git the all stash you make as list
 show stash chainges
 ========================================================
 -p => deteled --name-only => name --stat => summery  show@{<id>} => summery for sfpacific stash
+show stash chainges summery
 	git stash show [-p,--name-only,--stat]
+show stash chainges using stash id
 	git stash show@{<id>}
 
 ========================================================
