@@ -1,0 +1,17 @@
+/*
+|----------------------------------------------------------------------------------
+|	one to many
+|----------------------------------------------------------------------------------
+|
+|		parent table called user
+|		id(primary key)			name						email
+|		1						walid						walid@gmail.com
+|		2						abed						abed@gmail.com
+|		3						ahmed						ahmed@gmail.com
+|		child table => posts
+|		id(primary key)			post		userId(forgen key)
+|		1						link1		1					
+|		2						link2		2
+|		3						link3		3				
+|		4						link4		1							
+*/

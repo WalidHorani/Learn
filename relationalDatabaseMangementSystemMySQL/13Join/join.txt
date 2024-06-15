@@ -23,3 +23,173 @@ SELF JOIN
 	SELECT <A1>.<col>, <A2>.<col>
 	FROM <tableName1> A1, <tableName1> A2
 	WHERE <con>
+
+=========================================================================
+INNER JOIN
+=========================================================================
+SELECT Customers.first_name, Customers.last_name, Customers.age, Customers.country, Orders.item, Orders.amount
+FROM Customers
+INNER JOIN Orders
+ON Customers.customer_id = Orders.customer_id AND Customers.customer_id=4;
+
+Customers
+customer_id		first_name		last_name		age		country
+1				John			Doe				31		USA
+2				Robert			Luna			22		USA
+3				David			Robinson		22		UK
+4				John			Reinhardt		25		UK
+5				Betty			Doe				28		UAE
+
+
+Orders
+order_id		item		amount		customer_id
+1				Keyboard	400			4
+2				Mouse		300			4
+3				Monitor		12000		3
+4				Keyboard	400			1
+5				Mousepad	250			2
+
+
+RESULT TABLE
+first_name		last_name	age		country		item			amount
+John			Reinhardt	25		UK			Keyboard		400
+John			Reinhardt	25		UK			Mouse			300
+
+=========================================================================
+LEFT JOIN
+=========================================================================
+SELECT Customers.first_name, Customers.last_name, Customers.age, Customers.country, Orders.item, Orders.amount
+FROM Customers
+LEFT JOIN Orders
+ON Customers.customer_id = Orders.customer_id AND Customers.customer_id=4;
+
+Customers
+customer_id		first_name		last_name		age		country
+1				John			Doe				31		USA
+2				Robert			Luna			22		USA
+3				David			Robinson		22		UK
+4				John			Reinhardt		25		UK
+5				Betty			Doe				28		UAE
+
+
+Orders
+order_id		item		amount		customer_id
+1				Keyboard	400			4
+2				Mouse		300			4
+3				Monitor		12000		3
+4				Keyboard	400			1
+5				Mousepad	250			2
+
+
+RESULT TABLE
+first_name		last_name		age		country		item		amount
+John			Doe				31		USA		
+Robert			Luna			22		USA		
+David			Robinson		22		UK		
+John			Reinhardt		25		UK			Keyboard	400
+John			Reinhardt		25		UK			Mouse		300
+Betty			Doe				28		UAE
+
+=========================================================================
+RIGHT JOIN
+=========================================================================
+SELECT Customers.first_name, Customers.last_name, Customers.age, Customers.country, Orders.item, Orders.amount
+FROM Customers
+RIGHT JOIN Orders
+ON Customers.customer_id = Orders.customer_id AND Customers.customer_id=4;
+
+Customers
+customer_id		first_name		last_name		age		country
+1				John			Doe				31		USA
+2				Robert			Luna			22		USA
+3				David			Robinson		22		UK
+4				John			Reinhardt		25		UK
+5				Betty			Doe				28		UAE
+
+
+Orders
+order_id		item		amount		customer_id
+1				Keyboard	400			4
+2				Mouse		300			4
+3				Monitor		12000		3
+4				Keyboard	400			1
+5				Mousepad	250			2
+
+............................................................................................
+
+=========================================================================
+CROSS JOIN
+=========================================================================
+SELECT Customers.first_name, Customers.last_name, Customers.age, Customers.country, Orders.item, Orders.amount
+FROM Customers
+CROSS JOIN Orders
+
+Customers
+customer_id		first_name		last_name		age		country
+1				John			Doe				31		USA
+2				Robert			Luna			22		USA
+3				David			Robinson		22		UK
+4				John			Reinhardt		25		UK
+5				Betty			Doe				28		UAE
+
+
+Orders
+order_id		item		amount		customer_id
+1				Keyboard	400			4
+2				Mouse		300			4
+3				Monitor		12000		3
+4				Keyboard	400			1
+5				Mousepad	250			2
+
+
+first_name		last_name		age		country		item		amount
+John			Doe				31		USA			Keyboard	400
+John			Doe				31		USA			Mouse		300
+John			Doe				31		USA			Monitor		12000
+John			Doe				31		USA			Keyboard	400
+John			Doe				31		USA			Mousepad	250
+Robert			Luna			22		USA			Keyboard	400
+Robert			Luna			22		USA			Mouse		300
+Robert			Luna			22		USA			Monitor		12000
+Robert			Luna			22		USA			Keyboard	400
+Robert			Luna			22		USA			Mousepad	250
+David			Robinson		22		UK			Keyboard	400
+David			Robinson		22		UK			Mouse		300
+David			Robinson		22		UK			Monitor		12000
+David			Robinson		22		UK			Keyboard	400
+David			Robinson		22		UK			Mousepad	250
+John			Reinhardt		25		UK			Keyboard	400
+John			Reinhardt		25		UK			Mouse		300
+John			Reinhardt		25		UK			Monitor		12000
+John			Reinhardt		25		UK			Keyboard	400
+
+
+=========================================================================
+SELF JOIN
+=========================================================================
+SELECT A1.first_name, A1.last_name, A1.age, A1.country, A2.first_name, A2.last_name, A2.age, A2.country
+FROM Customers AS A1, Customers AS A2
+WHERE A1.customer_id=4 AND A2.country='USA';
+
+Customers
+customer_id		first_name		last_name		age		country
+1				John			Doe				31		USA
+2				Robert			Luna			22		USA
+3				David			Robinson		22		UK
+4				John			Reinhardt		25		UK
+5				Betty			Doe				28		UAE
+
+
+Orders
+order_id		item		amount		customer_id
+1				Keyboard	400			4
+2				Mouse		300			4
+3				Monitor		12000		3
+4				Keyboard	400			1
+5				Mousepad	250			2
+
+
+RESULT TABLE
+first_name		last_name		age		country		first_name		last_name		age		country
+John			Reinhardt		25		UK			John			Doe				31		USA
+John			Reinhardt		25		UK			Robert			Luna			22		USA

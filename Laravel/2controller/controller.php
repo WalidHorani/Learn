@@ -35,7 +35,7 @@
 |        		'inputFieldName' => ['required', 'regex:pattern', 'max:255', 'numeric', 'string', 'email', 'unique:table,column'],
 |    		],$messages);
 |	14-query bulder	
-|			update record => create(['colomnName'=>value]);
+|			create record => create(['colomnName'=>value]);
 |			insert record => insert([colomnName => $value,],[colomnName => $value,],)
 |			define the colomn you want to return => select('colomnName','colomnName')
 |			check if colomn value meet condtion => where([ ['colomnName','operator',$value], ])
@@ -76,7 +76,12 @@
 |			return min value in colomn => min('colomnName')
 |			return avg value in colomn => avg('colomnName')
 |			return sum value in colomn => sum('colomnName')
+|	14- Auth()->user();
+|	14- Auth()->id();
+|	15-	ParentModelName->getChildModelNameRecords();
+|	16-	ChildModelName->getParentModelNameRecords();
 */
+
 
 /*
 |----------------------------------------------------------------------
@@ -139,7 +144,7 @@
 
 /*
 |----------------------------------------------------------------------
-|	how to redirect to route with all data that send with reuest
+|	how to redirect to route with all data that send with request
 |----------------------------------------------------------------------
 |
 */
@@ -329,7 +334,7 @@
 
 /*
 |----------------------------------------------------------------------
-|	check if colomn value not in range
+|
 |----------------------------------------------------------------------
 |	orWhereBetween, orWherNoteBetween, 
 |	orWhereIn, orWhereNotIn, 

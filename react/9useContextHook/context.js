@@ -3,8 +3,51 @@ context
 *****************************************************************************************/
 //in some sutuation passing data from parent to children as proup is not convenant context 
 //imagain this senario you need to pass data throw many child component to reach the desired component this is not approperaite using props 
-//context allowe parent component to share date with inter tree below wthout using props the sub componanr can directly acsses 
+//context allowe parent component to share date with inter tree below wthout using props the sub componant can directly acsses 
 //this data
+/*
+    //DataContext.js
+    import {createContex} from 'react';
+    export let DataContext = createContext(null);
+
+    //parent.js
+    import Child from 'Child.js';
+    import SubChild from 'SubChild.js';
+    export default function Parent(){
+        return (
+            <>
+                <Child >
+                    <SubChild />
+                </Child >
+            </>
+        );
+    }
+
+    //Child.js
+    import {useContext} from 'react';
+    import {DataContext} from 'DataContext.js'
+    export default function Child({children}){
+        let data = useContext(DataContext);
+        return(
+            <section>
+                <DataContext.Provider value={'hi'}>
+                    {children}
+                </DataContext.Provider>
+            </section>
+        );
+    } 
+
+    //SubChild.js
+    import {useContext} from 'react';
+    import {DataContext} from 'DataContext.js'
+    export default function SubChild({}){
+        let data = useContext(DataContext);
+        return(
+            <h1>{data}</h1>
+        );
+    } 
+*/
+
 import {createContext} from "react";
 let LevelContext = createContext(0);
 import {useContext} from "react";

@@ -39,6 +39,33 @@ Reducer
 		 reducer function return :
 		 	1- new state => state
 		 	2- dispatching function => Action 
+    
+    import {useReducer} from 'react' ;
+    export default function Comp(){
+        let [state,dispatch]=useReducer(reducerFuntion,init);
+        function handleClick(e){
+            dispatch(
+                {
+                    type:'describe Action',
+                    //add all parameter in EH function signture as property
+                    event:e
+                }
+            );
+        }
+        return (
+            <button onClick={handleClick} ></button>
+        );
+    }
+    function reducerFuntion(state, action){
+        switch(action.type){
+            case "condtion":{
+                return(newValueOfState);
+            }
+            default:{
+                throw Error("msg");
+            }
+        }
+    }
 */
 import {useReducer} from "react";
 export default function App(){

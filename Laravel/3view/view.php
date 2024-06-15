@@ -4,7 +4,7 @@
 |	view
 |----------------------------------------------------------------------
 |	1-	what is the view ?
-|			view is function that identefy the blad templet that that we want to send to user the view function recive data from controller and |			 then pass it to blade templet 
+|			view is function that identefy the blad templet that that we want to send to user the view function recive data from controller and    |		   then pass it to blade templet 
 |	2-	how to show blade templet that exisite insaid view folder
 |			return view('bladeName');
 |	3-	how to show blade templet that exisite in subfolder in view folder

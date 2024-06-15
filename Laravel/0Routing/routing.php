@@ -98,6 +98,11 @@
 |				Route::get('/users/{user:colomnName}', [UserController::class, 'show']);
 |				// Controller method definition...
 |				public function show(User $user){}
+|	28-	Note :
+|			1-	Groupe	
+|			2-	middleware include & excloude
+|			3-	name 
+|			4-	validate routeParameter
 |
 */
 
@@ -194,8 +199,8 @@
 |----------------------------------------------------------------------
 */
 	Route::resources([
-  		'models' => ControllerName::class,
-  		'models' => ControllerName::class,
+  		'modelName' => ControllerName::class,
+  		'modelName' => ControllerName::class,
 	]);
 
 /*

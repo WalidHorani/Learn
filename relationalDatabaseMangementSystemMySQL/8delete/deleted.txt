@@ -9,7 +9,7 @@ delete statment : used to delete recodes
 //where <col> = ANY(SELECT STATMENT) => return true if any of record return by ANY meet the condition 
 //where <col> = ALL(SELECT STATMENT) => return true if all of record return by ALL meet the condition 
 general syntax
-	DELETE <tableName>
+	DELETE FROM <tableName>
 	[ WHERE <con> AND <con> OR <con> NOT <con> ]
 	[ WHERE <col> IS NULL || <col> IS NOT NULL ]
 	[ WHERE <col> LIKE <wildCard> || <col> NOT LIKE <wildCard> ]
@@ -22,5 +22,5 @@ general syntax
 ================================================
 delete record based on condtion
 ================================================
-DELETE <tableName>
+DELETE FROM <tableName>
 WHERE <con>
