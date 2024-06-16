@@ -2,13 +2,13 @@
 |-------------------------------------------------------------------------------
 |	fetch
 |-------------------------------------------------------------------------------
-|	- 	what is the default http methd that used by fetch ?
+|	1- 	what is the default http methd that used by fetch ?
 |			get 
-|	-	can we assign any header we want ?
+|	2-	can we assign any header we want ?
 |			No there is alot of header we cant set it .
-|	-	are fetch supoprt abort ?
+|	3-	are fetch supoprt abort ?
 |			No
-|	-	how to make abort ?
+|	4-	how to make abort ?
 |			const controller = new AbortController();
 |			const signal = controller.signal;
 |			const downloadBtn = document.querySelector("#download");
@@ -24,12 +24,12 @@
 |			  	controller.abort();
 |			  	console.log("Download aborted");
 |			}); 
-|	-	what do fetch credentials option ?
+|	5-	what do fetch credentials option ?
 |			responsaple fro send credentials with the request
 |				1-	include =>	send the credentials
 |				2-	same-origin => send the credentials if request URL is on the same origin as the calling script
 |				3-	omit => do not send the credentials
-|	-	how to make request using fetch ?
+|	6-	how to make request using fetch ?
 |			let responseObject = fetch( 
 |				'url',
 |				{
@@ -49,14 +49,14 @@
 |					body: jsonString, blobObject, formData
 |				}
 |			) ;
-|	-	what return of fetch ?
+|	7-	what return of fetch ?
 |			promise that resolved with Response Object
 |				let response = await fetch('https://jsonplaceholder.typicode.com/todos/1') ;
 |				console.log(response);
 |				//result
 |					Response { type: "cors", url: "https://jsonplaceholder.typicode.com/todos/1", redirected: false, status: 200, 
 |					ok: true, statusText: "OK", headers: Headers(4), body: ReadableStream, bodyUsed: false }
-|	-	how to check http state ?
+|	8-	how to check http state ?
 |			1-	.status => return number that represnt http state 200 or 405
 |					let response = await fetch('https://jsonplaceholder.typicode.com/todos/1') ;
 |					response.status; // 200 
@@ -65,45 +65,45 @@
 |					response.ok; // true
 |			3-	.statusText => return string that represnt http state ok || Not Found
 \					response.statusText; // ok
-|	-	what is the blob ?
+|	9-	what is the blob ?
 |			represents a file-like object containing raw data 
 |			it is a container for a collection of bytes that behaves similarly to a file
 |				1-	you cannot modify the content of a Blob
 |				2-	Blobs store binary data, not text
 |				3-	Blobs can have a MIME type associated with them, specifying the data format (e.g., text/plain, image/png).
 |			Blobs offer a versatile tool for handling raw data in JavaScript applications, particularly when dealing with files and data exchange
-|	-	how to convert html element to blob object ?
+|	10-	how to convert html element to blob object ?
 |			let blob = htmlElement.toBlob( mimeTypeAsString, qualityAsNumber );
 |				mimeTypeAsString => 'image/png'
 |				qualityAsNumber =>
 |					0 => low quality 
 |					1 => high quality
-|	-	what return .toBlob()
+|	11-	what return .toBlob()
 |			returns a Promise object that resolves to the created Blob object containing the element's data 
-|	-	what is the arrayBuffer ?
+|	12-	what is the arrayBuffer ?
 |			represents a fixed-size chunk of raw binary data storage in memory
 |			is specifically designed to hold raw binary data, which can be used for various purposes like images, audio, or custom data structures
 |				1-	Once created, the size of an ArrayBuffer cannot be changed
-|	-	what is formData ?
+|	13-	what is formData ?
 |			object represent html form
-| 	-	how to make form data ?
+| 	14-	how to make form data ?
 |			let formData = new FormData(htmlForm);
-|	-	how to append field with value in formData ?
+|	15-	how to append field with value in formData ?
 |			let formData = new FormData(htmlForm);
 |			formData.append(name, value) || formData.append(name, blob, fileName)
 |			formData.set(name, value) || formData.set(name, blob, fileName).
-|	-	how to remove field from formData ?
+|	16-	how to remove field from formData ?
 |			let formData = new FormData(htmlForm);
 |			formData.delete(name);
-|	-	how to get value of filed using filed name from formData ?
+|	17-	how to get value of filed using filed name from formData ?
 |			let formData = new FormData(htmlForm);
 |			formData.get(name)
-|	-	how to check if formData has field with spasfic name?
+|	18-	how to check if formData has field with spasfic name?
 |			let formData = new FormData(htmlForm);
 |			formData.has(name)
-|	-	when we want to send form data usng fetch what the Content-Type showld set ?
+|	19-	when we want to send form data usng fetch what the Content-Type showld set ?
 |			multipart/form-data
-|	- 	waht is the response body formats that support by fetch  and discripe it ?
+|	20- waht is the response body formats that support by fetch  and discripe it ?
 |			1-	.text() => 	read the body as text
 |					let response = await fetch('https://jsonplaceholder.typicode.com/todos/1') ;
 |					let commits = await response.text(); 
@@ -145,9 +145,9 @@
 |								Headers(4) { "cache-control" → "max-age=43200", "content-type" → "application/json; charset=utf-8",
 |								expires → "-1", pragma → "no-cache" }
 |								application/json; charset=utf-8
-|	-	how to convert js Object to json string ?
+|	21-	how to convert js Object to json string ?
 |			let jsonString = JSON.stringify(jsObject) ;
-|	-	how to make new request for request ?
+|	22-	how to make new request for request ?
 | 			const myRequest = new Request(
 | 				"url", 
 | 				{
@@ -157,20 +157,20 @@
 | 			  		cache: "default",
 | 				}
 | 			);
-|	-	how to make headr for request ?
+|	23-	how to make headr for request ?
 |			const myHeaders = new Headers({
 |  				"headerName": "headerValue",
 |			});
 |			||
 |			const myHeaders = new Headers();
 |			myHeaders.append("headerName", "headerValue");
-|	-	how to set header ?
+|	24-	how to set header ?
 |			myHeaders.set("headerName", "headerValue");
-|	-	how check if the header have spasicifc header ?
+|	25-	how check if the header have spasicifc header ?
 |			myHeaders.has("headerName")
-|	-	how to get header value ?
+|	26-	how to get header value ?
 |			myHeaders.get("headerName")
-|	-	how to delete header value ?
+|	27-	how to delete header value ?
 |			myHeaders.delete("headerName");
 |				
 */
@@ -190,8 +190,8 @@
 |	how to convert js object to json string 
 |-------------------------------------------------------------------------------
 */
-
-	let jsonString = JSON.stringify(jsObject) ;
+	let jsObject = {x:'walid'} ; 
+	let jsonString = JSON.stringify(jsObject) ; // as string '{x:walid}' 
 
 
 /*
@@ -291,7 +291,7 @@
 |-------------------------------------------------------------------------------
 */
 
-	let formData = new FormData(htmlForm);
+	let formData = new FormData(htmlForm); //formData object have the html form
 
 
 /*
@@ -440,7 +440,7 @@
 |-------------------------------------------------------------------------------
 */
 
-	myHeaders.has("headerName");
+	myHeaders.has("headerName");//trur || false
 
 /*
 |-------------------------------------------------------------------------------
@@ -448,7 +448,7 @@
 |-------------------------------------------------------------------------------
 */
 
-	myHeaders.get("headerName");
+	myHeaders.get("headerName");// header value
 
 
 /*
