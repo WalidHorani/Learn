@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------
-|	Async && Awaite KeyWord
+|	async && await KeyWord
 |--------------------------------------------------
 |	1- 	what is the thenable object ?
 |			thenable object : is object that have then method insaid it 

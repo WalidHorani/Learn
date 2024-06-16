@@ -120,7 +120,7 @@ class Child extends Parent{
     console.log(this);
   }
 }
-let child=new Child("walid",31);
+let child = new Child("walid",31);
 child.greet();
 
 /*=============================================================

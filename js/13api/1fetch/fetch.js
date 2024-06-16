@@ -41,11 +41,10 @@
 |						'headerName' : 'headerValue', 'text/plain',
 |						'Content-Type' : 'headerValue' //'application/json', 'multipart/form-data'
 |					},
-|					redirect: "follow", 
-|						//manual, *follow, error
-|						//referrerPolicy: "no-referrer", 
-|							// no-referrer, *no-referrer-when-downgrade, origin,
-|							//origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url			
+|					redirect: "follow", //manual, *follow, error
+|					//referrerPolicy: "no-referrer", 
+|						// no-referrer, *no-referrer-when-downgrade, origin,
+|						//origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url			
 |					body: jsonString, blobObject, formData
 |				}
 |			) ;
@@ -64,7 +63,7 @@
 |					let response = await fetch('https://jsonplaceholder.typicode.com/todos/1') ;
 |					response.ok; // true
 |			3-	.statusText => return string that represnt http state ok || Not Found
-\					response.statusText; // ok
+|					response.statusText; // ok
 |	9-	what is the blob ?
 |			represents a file-like object containing raw data 
 |			it is a container for a collection of bytes that behaves similarly to a file
@@ -73,7 +72,7 @@
 |				3-	Blobs can have a MIME type associated with them, specifying the data format (e.g., text/plain, image/png).
 |			Blobs offer a versatile tool for handling raw data in JavaScript applications, particularly when dealing with files and data exchange
 |	10-	how to convert html element to blob object ?
-|			let blob = htmlElement.toBlob( mimeTypeAsString, qualityAsNumber );
+|			let blob = htmlElement.toBlob( 'mimeTypeAsString', qualityAsNumber );
 |				mimeTypeAsString => 'image/png'
 |				qualityAsNumber =>
 |					0 => low quality 
@@ -90,17 +89,17 @@
 |			let formData = new FormData(htmlForm);
 |	15-	how to append field with value in formData ?
 |			let formData = new FormData(htmlForm);
-|			formData.append(name, value) || formData.append(name, blob, fileName)
-|			formData.set(name, value) || formData.set(name, blob, fileName).
+|			formData.append('fieldName', value) || formData.append('fieldName', blob, 'fileName')
+|			formData.set('fieldName', value) || formData.set('fieldName', blob, 'fileName').
 |	16-	how to remove field from formData ?
 |			let formData = new FormData(htmlForm);
-|			formData.delete(name);
+|			formData.delete('fieldName');
 |	17-	how to get value of filed using filed name from formData ?
 |			let formData = new FormData(htmlForm);
-|			formData.get(name)
+|			formData.get('fieldName')
 |	18-	how to check if formData has field with spasfic name?
 |			let formData = new FormData(htmlForm);
-|			formData.has(name)
+|			formData.has('fieldName')
 |	19-	when we want to send form data usng fetch what the Content-Type showld set ?
 |			multipart/form-data
 |	20- waht is the response body formats that support by fetch  and discripe it ?

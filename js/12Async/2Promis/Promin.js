@@ -103,7 +103,7 @@
 |---------------------------------------------------------------
 */
     let promiseObject3 = new Promise(function(resolve,reject){
-      //assume we do some operation and save the result in variable
+      //assume we do some async operation and save the result in variable
       //now we check if the varible meet the condtion using if statment
       if(false){
         resolve("resolved Promis") ;
