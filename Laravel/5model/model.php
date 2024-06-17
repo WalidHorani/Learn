@@ -113,7 +113,7 @@
 
 /*
 |------------------------------------------------------------------------------
-|	One to many => user belonges to many roule && roule belonges to many user  
+|	many to many => user belonges to many roule && roule belonges to many user  
 |------------------------------------------------------------------------------
 */	
 	//user model

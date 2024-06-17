@@ -4,7 +4,7 @@ introdaction
 stash : temporarily save changes that are not yet ready to be committed. 
 This is particularly useful when you need to switch branches or pull in changes 
 from another branch but want to save your current work without committing it
-	git stash [ save <"yourMsg"> ]
+	git stash save 'msg' 
 
 ========================================================
 git the all stash you make as list
@@ -19,25 +19,25 @@ show stash chainges
 show stash chainges summery
 	git stash show [-p,--name-only,--stat]
 show stash chainges using stash id
-	git stash show@{<id>}
+	git stash show@{id}
 
 ========================================================
 apply a stashed set of changes to your working directory, but without removing the stash itself.
 ========================================================
 apply a stashed set of changes to your working directory, but without removing the stash itself.
-	git stash apply [ stash@{<id>} ]
+	git stash apply stash@{id}
 
 ========================================================
 apply changes to your working directory and remove the stash itself.
 ========================================================
 apply changes to your working directory and remove the stash itself.
-	git stash pop [ stash@{<id>} ]
+	git stash pop stash@{id}
 
 ========================================================
 permanently remove a stashed set of changes from the history
 ========================================================
 permanently remove a stashed set of changes from the history targets a single stash for removal
-	git stash drop [ stash@{<id>} ]
+	git stash drop stash@{id}
 
 ========================================================
 removing all your stashed changes at once

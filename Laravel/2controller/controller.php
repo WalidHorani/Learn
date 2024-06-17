@@ -34,7 +34,7 @@
 |			$validated = $request->validate([
 |        		'inputFieldName' => ['required', 'regex:pattern', 'max:255', 'numeric', 'string', 'email', 'unique:table,column'],
 |    		],$messages);
-|	14-query bulder	
+|	14-	query bulder	
 |			create record => create(['colomnName'=>value]);
 |			insert record => insert([colomnName => $value,],[colomnName => $value,],)
 |			define the colomn you want to return => select('colomnName','colomnName')
@@ -76,6 +76,83 @@
 |			return min value in colomn => min('colomnName')
 |			return avg value in colomn => avg('colomnName')
 |			return sum value in colomn => sum('colomnName')
+|			return if the record exist => exists();
+|	15-	how to get the child record using parent record one to one relation ?
+|			$parent = Parent::find(1);
+|			$child = $parent->getChild;
+|	16-	how to get the colomn value in child record using parent record one to one relation ?
+|			$parent = Parent::find(1);
+|			$child = $parent->getChild()->pluck('colomnName');
+|	17-	how to get colomn value in parent record using child record one to one relation ?
+|			$child = Child::find(1);
+|			$parent = $child->getParent;
+|	18-	how to get the parent record using child record one to one relation ?
+|			$child = Child::find(1);
+|			$parent = $child->getParent()->pluck('colomnName');
+|	19-	how to get the child records using parent record one to Many relation ?
+|			$parent = Parent::find(1);
+|			$child = $parent->getChild;
+|	20-	how to get the colomn value in child record using parent record one to Many relation ?
+|			$parent = Parent::find(1);
+|			$child = $parent->getChild()->pluck('colomnName');
+|	21-	how to get the child records that meet condtion using parent record one to many relation ?
+|			$parent = Parent::find(1);
+|			$child = $parent->getChild()->where(...)->where(..)->get();
+|	22-	how to get the colomn value in child records that meet condtion using parent record one to many relation ?
+|			$parent = Parent::find(1);
+|			$child = $parent->getChild()->where(...)->where(..)->pluck('colomnName');
+|	23-	how to get the parent record using child records one to Many relation ?
+|			$child = Child::find(1);
+|			$parent = $child->getParent;
+|	24-	how to get coloumn value  parent record using child records one to Many relation ?
+|			$child = Child::find(1);
+|			$parent = $child->getParent()->pluck('colomnName');
+|	25-	how to get record for table1 using record table2 where the table have Many to Many relation ?
+| 			$table2 = Table2::find(1);
+|			$table1 = $table2->getTable1;
+|	26-	how to get record for table1 that meet condtion using record table2 that meet condtion where the table have Many to Many relation
+| 			$table2 = Table2::where()->get();
+|			$table1 = $table2->getTable1()->where()->get();
+|	27-	with() 
+|			modelName::with([	'getModel' => function($query){
+|									$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+|								},
+|								'getModel' => function($query){
+|									$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+|								},
+|			])->get();
+|	28-	withCount()
+|			modelName::withCount([	'getModel' => function($query){
+|										$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+|									},
+|									'getModel' => function($query){
+|										$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+|									},
+|			])->get();
+|	29-	whereHas()
+|			modelName::whereHas('getModel' , function($query){
+|									$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+|								}
+|			)->get();
+|	30-	whereDoesntHave
+|			modelName::whereDoesntHave('getModel' , function($query){
+|									$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+|								}
+|			)->get();
+|	
+|	31-	 delete all record then insert recordes in intermedite table
+|			$user = User::find(1)			
+|			$user->roles()->sync([1, 2, 3]); //
+|	32-	insert only new recordes in termedite table repeted record not allowed
+|			$user = User::find(1);
+|			$user->roles()->syncWithoutDetaching([1, 2, 3]); // 			
+|	33-	insert in intermidate Table repeted recored allowed	
+|		$user = User::find(1);
+|		$user->roles()->attach(1); // 
+|
+|	34-	delete record in intermidate Table 
+|		$user = User::find(1);
+|		$user->roles()->detach(1); //
 |	14- Auth()->user();
 |	14- Auth()->id();
 |	15-	ParentModelName->getChildModelNameRecords();
@@ -561,4 +638,100 @@
 
 	ModelName::sum('colomnName');
 
+
+/*
+|----------------------------------------------------------------------
+|	with()
+|----------------------------------------------------------------------
+|	
+*/
+	modelName::with(['getModel' => function($query){
+			$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+		},
+		'getModel' => function($query){
+			$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+		},
+	])->get();
+
+
+/*
+|----------------------------------------------------------------------
+|	withCount()
+|----------------------------------------------------------------------
+|	
+*/
+	modelName::withCount(['getModel' => function($query){
+			$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+		},
+		'getModel' => function($query){
+			$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+		},
+	])->get();
+
+
+/*
+|----------------------------------------------------------------------
+|	whereHas()
+|----------------------------------------------------------------------
+|	
+*/
+	modelName::whereHas('getModel' , function($query){
+			$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+		}
+	)->get();
+
+/*
+|----------------------------------------------------------------------
+|	whereDoesntHave()
+|----------------------------------------------------------------------
+|	
+*/
+	modelName::whereDoesntHave('getModel' , function($query){
+			$query->select('colomnName','colomnName')->where('ColomnName','operator',vlaue)
+		}
+	)->get();
+
+
+/*
+|----------------------------------------------------------------------
+|	delete all record then insert recordes in intermedite table
+|----------------------------------------------------------------------
+|	
+*/
+	$user = User::find(1)			
+	$user->roles()->sync([1, 2, 3]); //
+
+
+/*
+|----------------------------------------------------------------------
+|	insert only new recordes in termedite table repeted record not allowed
+|----------------------------------------------------------------------
+|	
+*/
+	$user = User::find(1)			
+	$user->roles()->syncWithoutDetaching([1, 2, 3]); // 	
+
+
+/*
+|----------------------------------------------------------------------
+|	insert in intermidate Table repeted recored allowed	
+|----------------------------------------------------------------------
+|	
+*/
+	$user = User::find(1)			
+	$user->roles()->attach(1); // 
+
+
+
+/*
+|----------------------------------------------------------------------
+|	delete record in intermidate Table 
+|----------------------------------------------------------------------
+|	
+*/
+	$user = User::find(1)			
+	$user->roles()->detach(1); //
+
+
+*/
 ?>
